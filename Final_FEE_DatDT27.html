@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="./Final_FEE_DatDT27.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <!-- hearder -->
+      <div class="row mb-5 mt-3 ml-1 tieu-de">
+        <h3>Thông tin Lớp học và môn học</h3>
+      </div>
+      <small id="error"></small>
+
+      <form action="" method="post" id="">
+        <!-- dòng 1  -->
+        <div class="form-row">
+          <div class="form-group col-6">
+            <div class="row">
+              <div class="form-group col-6 font-weight-bold">
+                <label>Lớp</label>
+                <select id="lop" class="form-control">
+                  <option value="" selected="" disabled>-- Chọn lớp --</option>
+
+                  <option value="12">12A</option>
+                  <option value="12">12B</option>
+                  <option value="11">11A</option>
+                  <option value="11">11B</option>
+                  <option value="10">10A</option>
+                  <option value="10">10B</option>
+                </select>
+                <small class="text-danger" id="val_lop"></small>
+              </div>
+
+              <div class="form-group col-6">
+                <div
+                  class="
+                    row
+                    d-flex
+                    font-weight-bold
+                    flex-column
+                    align-content-center
+                  "
+                >
+                  <label for="">Môn</label>
+
+                  <select id="mon" class="form-control">
+                    <option value="" selected="" disabled>
+                      -- Chọn môn --
+                    </option>
+
+                    <option value="sql">SQL</option>
+                    <option value="java">Java</option>
+                    <option value="html">Html</option>
+                    <option value="css">css</option>
+                    <option value="js">Java Script</option>
+                  </select>
+                  <small class="text-danger" id="val_mon"></small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col ml-4">
+            <div class="row">
+              <div class="form-group col font-weight-bold">
+                <label for="">Topic của môn học</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="topic"
+                  placeholder="nhập nội dung topic"
+                />
+                <small class="text-danger" id="val_topic"></small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-5">
+            <div class="row">
+              <div class="form-group col-7 font-weight-bold">
+                <label for="" id="">Giảng Viên</label>
+                <select id="gv" class="form-control">
+                  <option value="" selected="" disabled>
+                    -- Giảng Viên --
+                  </option>
+
+                  <option value="nguyenvana" ">Nguyen Van A</option>
+                  <option value="nguyenvanb" ">Nguyen Van B</option>
+                  <option value="nguyenvanc" >Nguyen Van C</option>
+                </select>
+                <small class="text-danger" id="val_giangvien"></small>
+              </div>
+              <div class="form-group col-5 font-weight-bold">
+                <label class="label" id="">Hình thức</label>
+                <select id="hinhthuc" class="form-control">
+                  <option value="" selected="" disabled>
+                    -- Chọn hình thức --
+                  </option>
+
+                  <option value="concept" id="2">Concept/Lecture</option>
+                  <option value="lab" id="1">Assigment/Lab</option>
+                </select>
+                <small class="text-danger" id="val_hinhthuc"></small>
+              </div>
+            </div>
+          </div>
+          <div class="form-group p-0 col ml-4">
+            <div class="row">
+              <div class="form-group p-0 col-6 font-weight-bold">
+                <label class="label" id="">Ngày Training/Mentor</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="ngaytrain"
+                  placeholder="dd/MM/yyyy"
+                />
+                <small class="text-danger" id="val_ngaytrain"></small>
+              </div>
+              <div class="form-group col-3 font-weight-bold">
+                <label class="label" id="">Thời gian bắt đầu</label>
+                <input
+                  type="time"
+                  class="form-control"
+                  id="start"
+                  placeholder="dd/MM/yyyy"
+                />
+                <small class="text-danger" id="val_start"></small>
+              </div>
+              <div class="form-group col-3 font-weight-bold">
+                <label class="label" id="">Thời gian kết thúc</label>
+                <input
+                  
+                  type="time"
+                  class="form-control"
+                  id="end"
+                  placeholder="dd/MM/yyyy"
+                />
+                <small class="" id="val_end"></small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- button -->
+        <div class="form-row ml-1">
+          <button
+            type="submit"
+            class="btn btn-success mt-3 mybutton mb-5"
+            id="btn-send"
+          >
+            <i class="fas fa-plus"></i> Add Lịch
+          </button>
+        </div>
+      </form>
+
+      <!-- VÙNG TABLE -->
+
+      <div class="table">
+        <form class="form-inline ml-3 mb-5">
+          <div class="row">
+            <div class="col-5">
+              <div class="row">
+                <label class="label font-weight-bold" id=""
+                  >Chọn Giảng Viên</label
+                >
+              </div>
+            </div>
+            <div class="col-5">
+              <select id="gvien" class="form-control mr-3">
+                <option value="" selected="" disabled>
+                  -- Chọn Giảng Viên --
+                </option>
+
+                <option value="nguyenvana" >Nguyen Van A</option>
+                <option value="nguyenvanb" >Nguyen Van B</option>
+                <option value="nguyenvanc" >Nguyen Van C</option>
+              </select>
+              <small class="text-danger" id="val_gvien"></small>
+            </div>
+          </div>
+          <div class="col-2">
+            <button class="btn btn-primary ml-5" id="btn-search">
+              Search
+            </button>
+          </div>
+        </form>
+
+        <table class="table">
+          <thead class="">
+            <tr>
+              <th>#</th>
+              <th>Lớp</th>
+              <th>Môn</th>
+              <th>Giảng Viên</th>
+              <th>Topic</th>
+              <th>Ngày Trainning/Mentor</th>
+              <th>Hình Thức</th>
+
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="result-data">
+            <!-- <tr>
+                          <td></td>
+                          <td>Last Name</td>
+                          <td>Email</td>
+                          <td>Phone</td>
+                          <td>Address</td>
+                          <td>City</td>
+                          <td>State</td>
+                          <td>Zip Code</td>
+                          <td>Name on Card</td>
+                          <td>Credit card number</td>
+                          <td>Exp Montd</td>
+                          <td>Exp Year</td>
+                          <td>CVV</td>
+                          <td>
+                              <button class="btn"><i class="fa fa-trash text-danger"></i></button>
+                          </td>
+                      </tr> -->
+          </tbody>
+        </table>
+
+        <!-- xóa tổng -->
+        <!-- <button id="clear" class="btn btn-outline-secondary">Clear Items</button> -->
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="./Final_FEE_DatDT27.js"></script>
+  </body>
+</html>
